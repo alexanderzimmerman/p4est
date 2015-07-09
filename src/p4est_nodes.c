@@ -484,8 +484,8 @@ p4est_nodes_t      *
 p4est_nodes_new (p4est_t * p4est, p4est_ghost_t * ghost)
 {
   const int           num_procs = p4est->mpisize;
-  const int           rank = p4est->mpirank;
 #ifdef P4EST_ENABLE_MPI
+  const int           rank = p4est->mpirank;
   int                 mpiret;
   int                 owner, prev, start;
   int                 first_peer, last_peer;

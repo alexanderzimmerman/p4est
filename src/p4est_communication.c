@@ -35,11 +35,9 @@
 void
 p4est_comm_count_quadrants (p4est_t * p4est)
 {
-  int                 mpiret;
+  const int           num_procs = p4est->mpisize;
   p4est_gloidx_t      qlocal = p4est->local_num_quadrants;
   p4est_gloidx_t     *global_first_quadrant = p4est->global_first_quadrant;
-  int                 i;
-  const int           num_procs = p4est->mpisize;
 
   sc_shmem_prefix (&qlocal, global_first_quadrant, 1, P4EST_MPI_GLOIDX,
                    sc_MPI_SUM, p4est->mpicomm);
@@ -52,7 +50,6 @@ p4est_comm_global_partition (p4est_t * p4est, p4est_quadrant_t * first_quad)
   const int           num_procs = p4est->mpisize;
   const p4est_topidx_t num_trees = p4est->connectivity->num_trees;
   int                 i;
-  int                 mpiret;
   const p4est_topidx_t first_tree = p4est->first_local_tree;
   p4est_tree_t       *tree;
   p4est_quadrant_t   *quadrant;

@@ -484,8 +484,8 @@ main (int argc, char **argv)
           config_name = "unit";
           break;
         }
-        P4EST_GLOBAL_PRODUCTIONF ("mpirun -np %3d %s%s -c %10s -l %2d\n",
-                                  r->mpisize, opt->program_path,
+        P4EST_GLOBAL_PRODUCTIONF ("mpirun -np %3d PROGRAM %s -c %10s -l %2d\n",
+                                  r->mpisize,
                                   oldschool ? " --oldschool" : "",
                                   config_name, r->level);
       }
